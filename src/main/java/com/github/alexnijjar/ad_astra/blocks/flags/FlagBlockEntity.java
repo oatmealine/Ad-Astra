@@ -70,10 +70,7 @@ public class FlagBlockEntity extends BlockEntity {
 
 	@Nullable
 	public String getUrl() {
-		if (this.id == null) {
-			return null;
-		}
-		return "https://i.imgur.com/" + this.id + ".png";
+		return this.id;
 	}
 
 	public void setId(@Nullable String id) {

@@ -17,7 +17,7 @@ import java.util.regex.Pattern;
 
 public class FlagUrlScreen extends Screen {
 
-    private static final Pattern URL_REGEX = Pattern.compile("^https://i\\.imgur\\.com/(\\w+)\\.png$");
+    private static final Pattern URL_REGEX = Pattern.compile("^https?://[-a-zA-Z0-9+&@#/%?=~_|!:,.;]*[-a-zA-Z0-9+&@#/%=~_|]");
 
     private final BlockPos pos;
     private TextFieldWidget urlField;
