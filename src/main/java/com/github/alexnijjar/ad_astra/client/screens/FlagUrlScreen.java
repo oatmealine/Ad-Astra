@@ -41,13 +41,14 @@ public class FlagUrlScreen extends Screen {
             if (matcher.matches()) {
                 PacketByteBuf buf = PacketByteBufs.create();
                 buf.writeBlockPos(this.pos);
-                buf.writeString(matcher.group(1));
+                buf.writeString(this.urlField.getText());
                 ClientPlayNetworking.send(ModC2SPackets.FLAG_URL, buf);
                 this.onClose();
             }
         }));
         this.button.active = false;
-        this.urlField = addDrawableChild(new TextFieldWidget(textRenderer, x, y, 200, 20, Text.of("https://imgur.com/urURL")));
+        this.urlField = addDrawableChild(new TextFieldWidget(textRenderer, x, y, 200, 20, Text.of("https://oat.zone/f/Meal.png")));
+        this.urlField.setMaxLength(128);
         this.urlField.setChangedListener(url -> {
             if (URL_REGEX.matcher(url).matches()) {
                 this.button.active = true;
